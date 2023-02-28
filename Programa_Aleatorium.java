@@ -1,6 +1,6 @@
 
 import java.util.Scanner;
-public class Examen23112022 {
+public class Programa_Aleatorium {
     public static void main (String[] args) {
         int minimo, maximo;
         int num1, num2;

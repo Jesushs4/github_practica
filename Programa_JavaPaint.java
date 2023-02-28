@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Examen30112022 {
+public class Programa_JavaPaint {
     public static void main (String[] args) {
         Scanner sc = new Scanner(System.in);
         // Definicion de variables
