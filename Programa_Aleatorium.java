@@ -10,15 +10,24 @@ public class Programa_Aleatorium {
         do {
             boolean acertado = false;
             System.out.print("-A-L-E-A-T-O-R-I-U-M-\n" +
-                    "Aleatorium pensará un número entre 0 y 100\n");
+                    "Aleatorium pensará un número entre los valores que tu decidas\n" +
+                    "Introduzca el valor mínimo del intervalo: ");
+            minimo = sc.nextInt();
+            System.out.print("Introduzca el valor máximo del intervalo: ");
+            maximo = sc.nextInt();
 
-            maximo = 100;
-            minimo = 0;
+            do {
+                num1 = (int)(Math.random()*((maximo-minimo)+1)+minimo);
+                num2 = (int)(Math.random()*((maximo-minimo)+1)+minimo);
+            } while (num1==num2);
+            maximo = Math.max(num1, num2);
+            minimo = Math.min(num1, num2);
 
             int intentos = (int)(Math.log(maximo-minimo+1) / Math.log(2));
 
             System.out.printf("-A-L-E-A-T-O-R-I-U-M-\n" +
-                    "Estoy pensando un número entre 0 y 100\n");
+                    "Estoy pensando un número entre %d y %d\n" +
+                    "Tienes %d intentos\n", minimo, maximo, intentos);
 
             int numeroSecreto = (int)(Math.random()*((maximo-minimo)+1)+minimo);
 
