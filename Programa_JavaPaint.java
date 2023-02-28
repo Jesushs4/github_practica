@@ -60,6 +60,12 @@ public class Programa_JavaPaint {
                 case 'p': // cambia al modo pintar
                     cabezal = 'P';
                     break;
+                case 'b': // cambia al modo borrar
+                    cabezal = 'B';
+                    break;
+                case 'm': // vuelve al modo mover
+                    cabezal = 'M';
+                    break;    
             }
             if (cabezal=='P') { // pinta donde esté el cabezal
                 tablero[cabezalf][cabezalc] = 'X';
