@@ -1,3 +1,4 @@
+// JavaPaint program
 import java.util.Scanner;
 public class Programa_JavaPaint {
     public static void main (String[] args) {
@@ -21,7 +22,7 @@ public class Programa_JavaPaint {
                 }
             }
         }
-        System.out.println("¡Bienvenido a JavaPaint, el minieditor en consola!");
+        System.out.println("¡Bienvenido a JavaPaint, el minieditor en consola!"); // welcome message
         do { // ejecuta el programa hasta que el usuario decida salir
             // muestra el tablero por pantalla
             for (int f = 0; f<11; f++) {
@@ -34,7 +35,7 @@ public class Programa_JavaPaint {
                 }
                 System.out.println();
             }
-            System.out.print("a. Izquierda\nd. Derecha\ns. Abajo\nw. Arriba\np. Pintar\nq. Salir\nOpcion: ");
+            System.out.print("a. Izquierda\nd. Derecha\ns. Abajo\nw. Arriba\np. Pintar\nq. Salir\nOpcion: "); // options menu
             opcion = sc.next().charAt(0);
             switch (opcion) {
                 case 'a': // mueve a la izquierda
@@ -70,8 +71,8 @@ public class Programa_JavaPaint {
             if (cabezal=='P') { // pinta donde esté el cabezal
                 tablero[cabezalf][cabezalc] = 'X';
             }
-        } while (opcion != 'q');
+        } while (opcion != 'q'); // exit condition
         sc.close();
-        System.out.println("Preciosa obra de arte! :) Gracias por usar JavaPaint");
+        System.out.println("Preciosa obra de arte! :) Gracias por usar JavaPaint"); // exit message
     }
 }
