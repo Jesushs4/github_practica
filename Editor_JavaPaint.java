@@ -35,8 +35,7 @@ public class Programa_JavaPaint {
                 }
                 System.out.println();
             }
-            System.out.print("a. Izquierda\nd. Derecha\ns. Abajo\nw. Arriba\np. Pintar\nq. Salir\nOpcion: "); // menu de opciones
-            opcion = sc.next().charAt(0);
+            System.out.print("a. Izquierda\nd. Derecha\ns. Abajo\nw. Arriba\np. Pintar\nb. Borrar\nm. Mover\nr. Rotar en sentido antihorario\ne. Espejo horizontal\nl. Limpiar tablero\nq. Salir\nOpcion: ");            opcion = sc.next().charAt(0);
             switch (opcion) {
                 case 'a': // mueve a la izquierda
                     if (cabezalc>1 && cabezalc<=9) {
@@ -67,9 +66,31 @@ public class Programa_JavaPaint {
                 case 'm': // vuelve al modo mover
                     cabezal = 'M';
                     break;
+                case 'r': // rota el tablero en sentido antihorario
+                    for (int f = 0; f<11; f++) {
+                        for (int c = 0; c < 11; c++) {
+                            tableroAux[f][c] = tablero[c][10-f];
+                        }
+                    }
+                break;
+                case 'e': // espejo horizontal
+                    for (int f = 0; f<11; f++) {
+                        for (int c = 0; c < 11; c++) {
+                            tableroAux[f][c] = tablero[f][10-c];
+                        }
+                    }
+                break;    
             }
-            if (cabezal=='P') { // pinta donde esté el cabezal
+            if (opcion=='e' || opcion=='r'){ // si lo rota o lo espeja, se guarda en un array auxiliar para después copiarlo en el array que se imprime
+                for (int f = 0; f<11; f++) {
+                    System.arraycopy(tableroAux[f], 0, tablero[f], 0, 11);
+                }
+            }
+            if (cabezal=='P' && opcion != 'r' && opcion != 'e') { // pinta donde esté el cabezal (siempre y cuando no se rote)
                 tablero[cabezalf][cabezalc] = 'X';
+            }
+            if (cabezal=='B' && opcion != 'r' && opcion != 'e') { // borra donde esté el cabezal (siempre y cuando no se rote)
+                tablero[cabezalf][cabezalc] = ' ';
             }
         } while (opcion != 'q'); // sale cuando el usuario pulsa la q
         sc.close();
