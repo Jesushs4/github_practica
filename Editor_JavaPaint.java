@@ -35,7 +35,7 @@ public class Programa_JavaPaint {
                 }
                 System.out.println();
             }
-            System.out.print("a. Izquierda\nd. Derecha\ns. Abajo\nw. Arriba\np. Pintar\nq. Salir\nOpcion: "); // menu de opciones
+            System.out.print("a. Izquierda\nd. Derecha\ns. Abajo\nw. Arriba\np. Pintar\nb. Borrar\nm. Mover\nr. Rotar en sentido antihorario\ne. Espejo horizontal\nl. Limpiar tablero\nq. Salir\nOpcion: ");
             opcion = sc.next().charAt(0);
             switch (opcion) {
                 case 'a': // mueve a la izquierda
@@ -67,6 +67,15 @@ public class Programa_JavaPaint {
                 case 'm': // vuelve al modo mover
                     cabezal = 'M';
                     break;
+                case 'l': // limpia el tablero, vuelve a poner espacios dentro de los bordes
+                    for (int f = 0; f<11; f++){
+                        for (int c = 0; c<11; c++) {
+                            if (c != 0 && c!=10 && f!=0 && f!=10) {
+                                tablero[f][c] = ' ';
+                            }
+                        }
+                    }
+                break;
             }
             if (cabezal=='P') { // pinta donde esté el cabezal
                 tablero[cabezalf][cabezalc] = 'X';
